@@ -1,0 +1,34 @@
+<form action="/" method="post" class="search">
+    <input autofocus name="city" type="text" class="search__input" placeholder="Ingrese una ciudad">
+    <%- include("svg", {
+        img: {
+            name: "search",
+            class:"search__img"
+        }
+    }) %>
+
+    <%- include("svg", {
+    img: {
+        name: "config",
+        class:"search__config"
+    }
+}) %>
+</form>
+
+<div class="config">
+    <%- include("svg", {
+        img: {
+            name: "close",
+            class:"config__close"
+        }
+    }) %>
+
+    <div class="config__elem">
+        <span class="config__elem__text">Modo Oscuro</span>
+        <div class="selector mode-toggler" data-status="false" data-action="darkMode">
+            <div class="selector__dot"></div>
+            <span class="selector__option">On</span>
+            <span class="selector__option">Off</span>
+        </div>
+    </div>
+</div>

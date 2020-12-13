@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Climmap | Inicio</title>
+    <link rel="stylesheet" href="/assets/css/normalize.css">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+</head>
+
+<body>
+    <img class="bg" src="/assets/img/<%= ["01", "02", "03" , "04", "09", "10" , "11", "13" , "50"][Math.floor(Math.random() * (9 - 0)) + 0] %>.jpg" alt="">
+
+    <main class="main--index">
+        <h1 class="main--index__title">Climapp</h1>
+        <%- include("searchbar") %>
+    </main>
+
+    <%- include("footer") %>
+
+    <script src="/assets/js/scripts.js"></script>
+</body>
+
+</html>

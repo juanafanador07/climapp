@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= data.name %> | Climapp</title>
+    <link rel="stylesheet" href="/assets/css/normalize.css">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+
+</head>
+
+<body>
+    <img class="bg" src="/assets/img/<%= data.weather[0].icon.substring(0, 2) %>.jpg" alt="">
+    
+    <%- include("searchbar") %>
+
+    <main class="main">
+        <p class="main__city"><%= data.name %>, <%= data.sys.country %></p>
+        <p class="main__temp"><%= data.main.temp.toFixed(0) %>°</p>
+        <%- include("svg", {img: {name: data.weather[0].icon.substring(0, 2),class: "main__weather"}}) %>
+        <p class="main__description"><%= data.weather[0].description %></p>
+
+        <div class="main__data">
+            <%- include("svg", {img: {name: "wind",class:"main__data__content"}}) %>
+            <span class="main__data__content"><%= data.wind.speed %> m/s</span>
+
+            <%- include("svg", {img: {name: "pressure",class:"main__data__content"}}) %>
+            <span class="main__data__content"><%= data.main.pressure %> hPa</span>
+
+            <%- include("svg", {img: {name: "body",class:"main__data__content"}}) %>
+            <span class="main__data__content"><%= data.main.feels_like.toFixed(0) %> °C</span>
+
+            <%- include("svg", {img: {name: "thermometer",class:"main__data__content"}}) %>
+            <span class="main__data__content"><%= data.main.temp_min.toFixed(0) %> °C /
+                <%= data.main.temp_max.toFixed(0) %> °C</span>
+
+            <% if (data.rain) { %>
+                <%- include("svg", {img: {name: "precipitation",class:"main__data__content"}}) %>
+            <span class="main__data__content"><%= data.rain["1h"] %> mm</span>
+            <% } %>
+
+            <% if (data.snow) { %>
+                <%- include("svg", {img: {name: "snow",class:"main__data__content"}}) %>
+            <span class="main__data__content"><%= data.snow["1h"] %> mm</span>
+            <% } %>
+
+        </div>
+    </main>
+    <%- include("footer") %>
+
+    <script src="/assets/js/scripts.js"></script>
+</body>
+
+</html>
