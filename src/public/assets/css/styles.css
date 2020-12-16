@@ -60,8 +60,13 @@ h1 {
 }
 
 .search__config {
-    color: var(--bg);
+    box-sizing: content-box;
+    color: var(--text);
     width: 1.5rem;
+    padding: .5rem;
+    background: var(--bg);
+    margin: 0 0 0 1rem;
+    border-radius: 5rem;
 }
 
 .search__config:hover {
@@ -120,6 +125,10 @@ h1 {
     margin: .5rem;
     color: var(--text);
     transition: color .25s linear;
+}
+
+.config__elem__text{
+    max-width: 7.5rem;
 }
 
 .selector {

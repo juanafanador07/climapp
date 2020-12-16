@@ -21,7 +21,9 @@
 
     <main class="main">
         <p class="main__city"><%= data.name %>, <%= data.sys.country %></p>
-        <p class="main__temp"><%= data.main.temp.toFixed(0) %>°</p>
+        <p class="main__temp">
+            <span class="temp"><%= Math.round(data.main.temp) %></span>°
+        </p>
         <%- include("svg", {img: {name: data.weather[0].icon.substring(0, 2),class: "main__weather"}}) %>
         <p class="main__description"><%= data.weather[0].description %></p>
 
@@ -33,11 +35,13 @@
             <span class="main__data__content"><%= data.main.pressure %> hPa</span>
 
             <%- include("svg", {img: {name: "body",class:"main__data__content"}}) %>
-            <span class="main__data__content"><%= data.main.feels_like.toFixed(0) %> °C</span>
+            <span class="main__data__content"><%= Math.round(data.main.feels_like) %> °C</span>
 
             <%- include("svg", {img: {name: "thermometer",class:"main__data__content"}}) %>
-            <span class="main__data__content"><%= data.main.temp_min.toFixed(0) %> °C /
-                <%= data.main.temp_max.toFixed(0) %> °C</span>
+            <span class="main__data__content">
+                <span class="temp"><%= Math.round(data.main.temp_min) %></span>° / 
+                <span class="temp"><%= Math.round(data.main.temp_max) %></span>°
+            </span>
 
             <% if (data.rain) { %>
                 <%- include("svg", {img: {name: "precipitation",class:"main__data__content"}}) %>
